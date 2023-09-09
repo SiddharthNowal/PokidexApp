@@ -1,6 +1,8 @@
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
+  id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -47,7 +49,6 @@ android {
 }
 
 dependencies {
-
   implementation("androidx.core:core-ktx:1.10.1")
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
   implementation("androidx.activity:activity-compose:1.7.2")
@@ -66,4 +67,17 @@ dependencies {
 
   debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
   implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
+
+  implementation("com.google.code.gson:gson:2.9.1")
+
+  // Retrofit Dependencies
+  implementation("com.squareup.retrofit2:retrofit:2.9.0")
+  implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+  implementation("com.squareup.okhttp3:okhttp:4.10.0")
+
+  implementation("com.google.dagger:hilt-android:2.44")
+  kapt("com.google.dagger:hilt-android-compiler:2.44")
+  implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+  kapt("androidx.hilt:hilt-compiler:1.0.0")
+  implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 }

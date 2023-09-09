@@ -1,4 +1,4 @@
-package com.myprojects.pokidexapp.ui.common_views
+package com.myprojects.pokidexapp.core.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,9 +16,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.myprojects.pokidexapp.R
-import com.myprojects.pokidexapp.ui.theme.ColorBlackDark
-import com.myprojects.pokidexapp.ui.theme.ColorWhite
-import com.myprojects.pokidexapp.ui.theme.Typography
+import com.myprojects.pokidexapp.utils.theme.ColorBlackDark
+import com.myprojects.pokidexapp.utils.theme.ColorWhite
+import com.myprojects.pokidexapp.utils.theme.Typography
 
 @Composable
 fun MainToolbarView(

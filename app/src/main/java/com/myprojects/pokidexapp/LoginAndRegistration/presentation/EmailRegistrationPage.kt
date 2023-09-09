@@ -1,4 +1,4 @@
-package com.myprojects.pokidexapp.ui.screens
+package com.myprojects.pokidexapp.LoginAndRegistration.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -24,14 +24,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.myprojects.pokidexapp.ui.common_views.MainToolbarView
-import com.myprojects.pokidexapp.ui.theme.ColorBlackDark
-import com.myprojects.pokidexapp.ui.theme.ColorBlackMedium
-import com.myprojects.pokidexapp.ui.theme.ColorBlueDark
-import com.myprojects.pokidexapp.ui.theme.ColorGreyLight
-import com.myprojects.pokidexapp.ui.theme.ColorGreyMedium
-import com.myprojects.pokidexapp.ui.theme.ColorWhite
-import com.myprojects.pokidexapp.ui.theme.Typography
+import com.myprojects.pokidexapp.core.presentation.MainToolbarView
+import com.myprojects.pokidexapp.utils.theme.ColorBlackDark
+import com.myprojects.pokidexapp.utils.theme.ColorBlackMedium
+import com.myprojects.pokidexapp.utils.theme.ColorBlueDark
+import com.myprojects.pokidexapp.utils.theme.ColorGreyLight
+import com.myprojects.pokidexapp.utils.theme.ColorGreyMedium
+import com.myprojects.pokidexapp.utils.theme.ColorWhite
+import com.myprojects.pokidexapp.utils.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
