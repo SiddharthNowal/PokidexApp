@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">PokidexApp</string>
+
+    <string name="firebase_client_id">739007701929-6dcuqkbooj60en1voencm4vrapvm0s6q.apps.googleusercontent.com</string>
+    <string name="text_create_account">Create Account</string>
+    <string name="text_reg_home_title">There\'s little left to explore this world!</string>
+    <string name="text_reg_home_desc">How do you want to connect?</string>
+    <string name="text_continue_with_google">Continue with Google</string>
+    <string name="text_continue_with_email">Continue with an email</string>
+    <string name="text_email_reg_title">Let\'s get started!</string>
+    <string name="text_email_reg_desc">What is your email?</string>
+    <string name="text_email_placeholder">E-mail</string>
+    <string name="text_password_placeholder">Password</string>
+    <string name="text_email_input_helper">Please use a valid email address.</string>
+    <string name="text_continue">Continue</string>
+    <string name="text_pass_reg_title">Now…</string>
+    <string name="text_pass_reg_desc">Create a password</string>
+    <string name="text_pass_input_helper">Your password must be at least 8 characters</string>
 </resources>
