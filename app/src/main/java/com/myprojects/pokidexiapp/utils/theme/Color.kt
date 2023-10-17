@@ -20,3 +20,6 @@ val ColorBlueDark = Color(0xFF173EA5)
 
 val ColorGreyLight = Color(0xFFE6E6E6)
 val ColorGreyMedium = Color(0xFF999999)
+
+val ColorGreenLight = Color(0xFFEDF6EC)
+val ColorLime = Color(0xFF63BC5A)

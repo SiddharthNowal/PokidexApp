@@ -1,6 +1,5 @@
 package com.myprojects.pokidexiapp.core.di
 
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Module
@@ -19,20 +19,26 @@ object AppModule {
   @Provides
   fun providesGsonRetrofit(
     httpClient: OkHttpClient,
-    gsonConverterFactory: GsonConverterFactory) = Retrofit.Builder()
-    .baseUrl("https://pokeapi.glitch.me")
+    gsonConverterFactory: GsonConverterFactory
+  ): Retrofit = Retrofit.Builder()
+    .baseUrl("https://pokeapi.co/api/v2/")
     .client(httpClient)
-    .addConverterFactory(gsonConverterFactory)
-    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+    .addConverterFactory(gsonConverterFactory).build()
 
-  @Provides
   @Singleton
-  fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient.Builder {
-    val httpClient = OkHttpClient.Builder()
-    httpClient.addInterceptor(httpLoggingInterceptor)
-    httpClient.retryOnConnectionFailure(true)
-    return httpClient
+  @Provides
+  fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
+    OkHttpClient.Builder()
+      .addInterceptor(interceptor)
+      .retryOnConnectionFailure(true)
+      .build()
 
+  @Singleton
+  @Provides
+  fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    val httpLoggingInterceptor = HttpLoggingInterceptor()
+    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+    return httpLoggingInterceptor
   }
 
   @Provides

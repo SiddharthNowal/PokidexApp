@@ -44,30 +44,30 @@ class LoginAndRegistrationActivity : ComponentActivity() {
     setContent {
       PokidexAppTheme {
         val navHostController = rememberNavController()
+        val googleSignInLauncher =
+          rememberLauncherForActivityResult(contract = ActivityResultContracts.StartIntentSenderForResult(),
+            onResult = { result ->
+              result.data?.let {
+                if (result.resultCode == RESULT_OK) {
+                  lifecycleScope.launch {
+                    val signInResult = googleAuthSignInClient.signInWithIntent(
+                      it
+                    )
+                    viewModel.onSignInResult(signInResult)
+                  }
+                } else {
+                  val exception = result.data?.getSerializableExtra(
+                    ActivityResultContracts.StartIntentSenderForResult.EXTRA_SEND_INTENT_EXCEPTION, Exception::class.java)
+                  exception?.printStackTrace()
+                }
+              }
+            })
         if (googleAuthSignInClient.getSignedInUser() != null) {
           startActivity(Intent(this, HomeActivity::class.java))
         }
         NavHost(navController = navHostController, startDestination = "register_home") {
           composable(route = "register_home") {
             val loginState = viewModel.loginState.collectAsState()
-            val googleSignInLauncher =
-              rememberLauncherForActivityResult(contract = ActivityResultContracts.StartIntentSenderForResult(),
-                onResult = { result ->
-                  result.data?.let {
-                    if (result.resultCode == RESULT_OK) {
-                      lifecycleScope.launch {
-                        val signInResult = googleAuthSignInClient.signInWithIntent(
-                          it
-                        )
-                        viewModel.onSignInResult(signInResult)
-                      }
-                    } else {
-                      val exception = result.data?.getSerializableExtra(
-                        ActivityResultContracts.StartIntentSenderForResult.EXTRA_SEND_INTENT_EXCEPTION, Exception::class.java)
-                      exception?.printStackTrace()
-                    }
-                  }
-                })
             LaunchedEffect(key1 = loginState.value.isSignSuccessful) {
               if(loginState.value.isSignSuccessful) {
                 Toast.makeText(

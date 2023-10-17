@@ -16,4 +16,9 @@
     <string name="text_pass_reg_title">Now…</string>
     <string name="text_pass_reg_desc">Create a password</string>
     <string name="text_pass_input_helper">Your password must be at least 8 characters</string>
+
+    <string name="title_nav_bar_item_one">Pokedex</string>
+    <string name="title_nav_bar_item_two">Regions</string>
+    <string name="title_nav_bar_item_three">Favourites</string>
+    <string name="title_nav_bar_item_four">Account</string>
 </resources>

@@ -82,5 +82,5 @@ class GoogleAuthSignInClient(
         .setServerClientId(context.getString(R.string.firebase_client_id))
         .setFilterByAuthorizedAccounts(false)
         .build()
-    ).setAutoSelectEnabled(true).build()
+    ).build()
 }
